@@ -12,8 +12,11 @@
 #     puts "After placing your order app will give you total amount of the bill"
 #         sleep (1)
 
+ puts "----------------------------------------------------------------------------------------------------------------------------------------------"
+ puts "----------------------------------------------------------------------------------------------------------------------------------------------"
 
-#Meal planning area with recipes to display on each day of the week
+
+ #Meal planning area with recipes to display on each day of the week
 #It will show day and name of the recipie , also will describe the method
 
 # class Meal_planner
@@ -127,39 +130,94 @@
 #     end
 # end
 
-# planner = Meal_planner.new
+# puts "----------------------------------------------------------------------------------------------------------------------------------------------"
+# puts "----------------------------------------------------------------------------------------------------------------------------------------------"
 
-# do_options(planner)
 
 
 #display the kitchen inventory list
-    inventory = ["potato ,", "olive_oil ,", "garlic ,", "lemon ,", "garlic ,", "lemon ,", "salmon ,", "sweet_chilli_sauce ,", "ginger ,",
-                  "onion, ", "lamb, rosemary, ", "chicken_stock, ", "ricotta, ", "eggs, ", "Parmesan, ", "thyme, ",
-                  "celery, ", "egg_mayonnaise, ", "bread, ", "chicken_thighs, ", "pasta_sauce, ", "black_olives, ",
-                  "red_curry_paste, ", "chicken_breast, ", "peanut_butter, ", "cream "]
-    inventory.each do |name|
-    end
-
-    puts inventory.join(" ")
-    # garlic, lemon, salmon, sweet_chilli_sauce, ginger,
-    #             onion, lamb, rosemary, chicken_stock, ricotta, eggs, Parmesan, thyme,
-    #             celery, egg_mayonnaise, bread, chicken_thighs, pasta_sauce, black_olives,
-    #             red_curry_paste, chicken_breast, peanut_butter, cream]
-
-
-   
-      
     
+ 
+    # inventory.each do |name|
+    # end
 
-# end
-  # add item to kitchen inventory list
-# def add_list_item
+    # puts inventory.join(" ")
+    kitchen_inventory = {
+        "potato" => "4", "olive_oil" => "6", "garlic" => "3", "lemon" => "1", "salmon" => "4",
+        "sweet_chilli_sauce" => "9", "ginger" => "2", "onion" => "4", "lamb" => "12", "rosemary" => "3", "chicken_stock" => "5", "ricotta" => "4", "eggs" => "1", "parmesan" => "5",
+        "thyme" => "1", "celery" => "3", "egg_mayonnaise" => "3", "bread" => "4", "chicken_thighs" => "20",
+        "pasta_sauce" => "5", "black_olives" => "3", "chicken_breast" => "15", "peanut_butter" => "4", "cream" => "4",
+        
+      }
+    #   kitchen_inventory.each do |key, value|
+    #     "#{key}: #{value}"
+    # end
+
+    puts kitchen_inventory
+    for key , value in kitchen_inventory
+        puts  "#{key}: #{value}"
+    end
+    
+    
+#     puts "----------------------------------------------------------------------------------------------------------------------------------------------"
+#     puts "----------------------------------------------------------------------------------------------------------------------------------------------"
+
+#  # create/name list for out of stock kitchen inventory
+#  total_price = 0
+# def create_list
+#     print "What is the list name? "
+#     name = gets.chomp
+    
+#     hash = { "name" => name, "items" => Array.new }
+#     return hash
+#   end
+  
+#   # add out of stock items
+#   def add_list_item
 #     print "What is the item you'd like to add? "
 #     item_name = gets.chomp
     
-#     print "How much/many? "
-#     quantity = gets.chomp.to_i
+#     print "what is the price "
+#     price = gets.chomp.to_i
     
-#     hash = { "name" => item_name, "quantity" => quantity }
+#     hash = { "name" => item_name, "price" => price }
 #     return hash
 #   end
+
+#     def total_price
+#         total_price = price + 1
+#     end 
+  
+  
+#   # print seprator
+#   def print_separator(character="-")
+#     puts character * 80
+#   end
+  
+#   # print list
+#   def print_list(list)
+#     puts "List: #{list['name']}"
+#     print_separator()
+#     list["items"].each do |item|
+#       puts "\tItem: " + item['name'] + "\t\t\t" + 
+#            "price: " +item["price"].to_s
+#     end
+#     print_separator()
+#   end
+  
+#   list = create_list()
+#   puts "Now, let's add items to your list!"
+  
+#   said_yes = "yes"
+  
+#   while said_yes == "yes" do
+#     list["items"].push(add_list_item)
+#     puts "Would you like to add another item to the list? (enter 'yes' or 'no')"
+#     said_yes = gets.chomp.downcase
+#   end
+  
+#   puts "Here's your list:\n"
+#   print_list(list)
+
+
+
