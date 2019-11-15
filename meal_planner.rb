@@ -142,82 +142,93 @@
     # end
 
     # puts inventory.join(" ")
+
+    puts "This is a kitchen inventory list. please go through it and check what item is out of stock"
+    puts ""
+    puts ""
+     
     kitchen_inventory = {
-        "potato" => "4", "olive_oil" => "6", "garlic" => "3", "lemon" => "1", "salmon" => "4",
-        "sweet_chilli_sauce" => "9", "ginger" => "2", "onion" => "4", "lamb" => "12", "rosemary" => "3", "chicken_stock" => "5", "ricotta" => "4", "eggs" => "1", "parmesan" => "5",
-        "thyme" => "1", "celery" => "3", "egg_mayonnaise" => "3", "bread" => "4", "chicken_thighs" => "20",
-        "pasta_sauce" => "5", "black_olives" => "3", "chicken_breast" => "15", "peanut_butter" => "4", "cream" => "4",
+        "potato" => "$4", "olive_oil" => "$6", "garlic" => "$3", "lemon" => "$1", "salmon" => "$4",
+        "sweet_chilli_sauce" => "$9", "ginger" => "$2", "onion" => "$4", "lamb" => "$12", "rosemary" => "$3",
+         "chicken_stock" => "$5", "ricotta" => "$4", "eggs" => "$1", "parmesan" => "$5",
+        "thyme" => "$1", "celery" => "$3", "egg_mayonnaise" => "$3", "bread" => "$4", "chicken_thighs" => "$20",
+        "pasta_sauce" => "$5", "black_olives" => "$3", "chicken_breast" => "$15", "peanut_butter" => "$4", "cream" => "$4",
         
       }
+
     #   kitchen_inventory.each do |key, value|
     #     "#{key}: #{value}"
     # end
 
-    puts kitchen_inventory
+    # puts kitchen_inventory
     for key , value in kitchen_inventory
         puts  "#{key}: #{value}"
     end
     
-    
-#     puts "----------------------------------------------------------------------------------------------------------------------------------------------"
-#     puts "----------------------------------------------------------------------------------------------------------------------------------------------"
+    puts "----------------------------------------------------------------------------------------------------------------------------------------------"
+    puts "----------------------------------------------------------------------------------------------------------------------------------------------"
 
-#  # create/name list for out of stock kitchen inventory
-#  total_price = 0
-# def create_list
-#     print "What is the list name? "
-#     name = gets.chomp
-    
-#     hash = { "name" => name, "items" => Array.new }
-#     return hash
-#   end
-  
-#   # add out of stock items
-#   def add_list_item
-#     print "What is the item you'd like to add? "
-#     item_name = gets.chomp
-    
-#     print "what is the price "
-#     price = gets.chomp.to_i
-    
-#     hash = { "name" => item_name, "price" => price }
-#     return hash
-#   end
+ # create/name list for out of stock kitchen inventory
 
-#     def total_price
-#         total_price = price + 1
-#     end 
+def create_list
+    print "What is the list name? "
+    name = gets.chomp
+    
+    hash = { "name" => name, "items" => Array.new }
+    return hash
+  end
+
   
+    # total_price = 0
+    # def total_price(price)
+    #     total_price += price
+    #   end
   
-#   # print seprator
-#   def print_separator(character="-")
-#     puts character * 80
-#   end
+  # add out of stock items
+  def add_list_item
+    print "What is the item you'd like to add? "
+    item_name = gets.chomp
+    
+    
+    print "what is the price ? "
+    price = gets.chomp.to_i
+    # total_price(price)
+     
+    hash = { "name" => item_name, "price" => price }
+    return hash
+  end
+
   
-#   # print list
-#   def print_list(list)
-#     puts "List: #{list['name']}"
-#     print_separator()
-#     list["items"].each do |item|
-#       puts "\tItem: " + item['name'] + "\t\t\t" + 
-#            "price: " +item["price"].to_s
-#     end
-#     print_separator()
-#   end
+  # print seprator
+  def print_separator(character="-")
+    puts character * 140
+  end
   
-#   list = create_list()
-#   puts "Now, let's add items to your list!"
+  # print list
+  def print_list(list)
+    puts "List: #{list['name']}"
+    print_separator()
+    list["items"].each do |item|
+      puts "\tItem: " + item['name'] + "\t\t\t" + 
+           "price: " +item["price"].to_s
+    end
+    print_separator()
+  end
   
-#   said_yes = "yes"
+  list = create_list()
+  puts "Now, let's add items to your list!"
   
-#   while said_yes == "yes" do
-#     list["items"].push(add_list_item)
-#     puts "Would you like to add another item to the list? (enter 'yes' or 'no')"
-#     said_yes = gets.chomp.downcase
-#   end
+  said_yes = "yes"
   
-#   puts "Here's your list:\n"
-#   print_list(list)
+  while said_yes == "yes" do
+    list["items"].push(add_list_item)
+    puts "Would you like to add another item to the list? (enter 'yes' or 'no')"
+    said_yes = gets.chomp.downcase
+  end
+  
+  puts "Here's your list:\n"
+  print_list(list)
+#   puts total_price
 
 
 
