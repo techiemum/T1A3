@@ -21,4 +21,14 @@ Development Log
 - defined method for the each day of the week ,each day will display different recipie
 - crated an array for kitchen inventory list
 
+15/11/2019
+
+-working on a method which will let user create list .
+-user will be adding items which are out of stock from kitchen inventory
+-it will also ask user for how much quantity they prefer
+-converting yesterday's array list into hashes as its not working out as planned before
+-it would be easier for user to select price from list rather than putting their own price
+-created hash with list of item names and prices and will display as a  list to user 
+
+
 
