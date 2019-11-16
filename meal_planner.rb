@@ -1,5 +1,85 @@
 require "colorize"
 
+
+def get_user_input
+    puts "Options:".colorize(:color => :light_blue, :background => :red)
+    puts "monday"
+    puts "tuesday"
+    puts "wednesday"
+    puts "thursday"
+    puts "friday"
+    puts "saturday"
+    puts "sunday"
+    puts "Select a day".red
+return gets.chomp
+end
+
+def do_options(class_instance)
+    case get_user_input()
+    when "monday"
+        puts class_instance.monday
+    when "tuesday"
+        puts class_instance.tuesday
+    when "wednesday"
+        puts class_instance.wednesday
+    when "thursday"
+        puts class_instance.thursday
+    when "friday"
+        puts class_instance.friday
+    when "saturday"
+        puts class_instance.saturday
+    when "sunday"
+        puts class_instance.sunday
+    else
+        puts "please selct the day"
+    end
+end
+
+
+def create_list
+    print "What is the list name? "
+    name = gets.chomp
+    
+    hash = { "name" => name, "items" => Array.new }
+    return hash
+  end
+
+  $total_price = 0
+
+def add_to_total(price)
+    $total_price += price
+end
+  
+  # add out of stock items
+  def add_list_item
+    print "What is the item you'd like to add? "
+    item_name = gets.chomp
+    
+    
+    print "what is the price ? "
+    price = gets.chomp.to_i
+    add_to_total(price)
+     
+    hash = { "name" => item_name, "price" => price }
+    return hash
+  end
+
+  
+  # print seprator
+  def print_separator(character="-")
+    puts character * 140
+  end
+  
+  # print list
+  def print_list(list)
+    puts "List: #{list['name']}"
+    print_separator()
+    list["items"].each do |item|
+      puts "\tItem: " + item['name'] + "\t\t\t" + 
+           "price: " +item["price"].to_s
+    end
+    print_separator()
+  end
 # this part will inform user for how to use the app . 
 
 
@@ -23,11 +103,11 @@ require "colorize"
 
 class Meal_planner
 
-    attr_reader :kitchen_inventory 
+    attr_reader :stocklist 
     attr_writer :get_user_input, :do_options
 
     def initialize
-        @kitchen_inventory = {
+        @stocklist = {
             "potato" => "$4", "olive_oil" => "$6", "garlic" => "$3", "lemon" => "$1", "salmon" => "$4",
             "sweet_chilli_sauce" => "$9", "ginger" => "$2", "onion" => "$4", "lamb" => "$12", "rosemary" => "$3",
                 "chicken_stock" => "$5", "ricotta" => "$4", "eggs" => "$1", "parmesan" => "$5",
@@ -104,46 +184,12 @@ class Meal_planner
 end
 
 
-def get_user_input
-    puts "Options:".colorize(:color => :light_blue, :background => :red)
-    puts "monday"
-    puts "tuesday"
-    puts "wednesday"
-    puts "thursday"
-    puts "friday"
-    puts "saturday"
-    puts "sunday"
-    puts "Select a day".red
-return gets.chomp
-end
-
-def do_options(class_instance)
-    case get_user_input()
-    when "monday"
-        puts class_instance.monday
-    when "tuesday"
-        puts class_instance.tuesday
-    when "wednesday"
-        puts class_instance.wednesday
-    when "thursday"
-        puts class_instance.thursday
-    when "friday"
-        puts class_instance.friday
-    when "saturday"
-        puts class_instance.saturday
-    when "sunday"
-        puts class_instance.sunday
-    else
-        puts "please selct the day"
-    end
-end
 
 puts "----------------------------------------------------------------------------------------------------------------------------------------------"
 puts "----------------------------------------------------------------------------------------------------------------------------------------------"
 
 
 planner = Meal_planner.new
-Meal_planner.get_user_input()
 do_options(planner)
 #display the kitchen inventory list
 sleep(2)
@@ -160,21 +206,14 @@ sleep(2)
 
     # puts #{Meal_planner.kitchen_inventory}"
 
-    # kitchen_inventory = {
-    #     "potato" => "$4", "olive_oil" => "$6", "garlic" => "$3", "lemon" => "$1", "salmon" => "$4",
-    #     "sweet_chilli_sauce" => "$9", "ginger" => "$2", "onion" => "$4", "lamb" => "$12", "rosemary" => "$3",
-    #      "chicken_stock" => "$5", "ricotta" => "$4", "eggs" => "$1", "parmesan" => "$5",
-    #     "thyme" => "$1", "celery" => "$3", "egg_mayonnaise" => "$3", "bread" => "$4", "chicken_thighs" => "$20",
-    #     "pasta_sauce" => "$5", "black_olives" => "$3", "chicken_breast" => "$15", "peanut_butter" => "$4", "cream" => "$4",
-        
-    #   }
+   
       sleep(2)
     #   kitchen_inventory.each do |key, value|
     #     "#{key}: #{value}"
     # end
-    kitchen_inventory = Meal_planner.new("potato", 4.00)
+    kitchen_inventory = Meal_planner.new
     # puts kitchen_inventory
-    for key , value in kitchen_inventory
+    for key , value in kitchen_inventory.stocklist
         puts  "#{key}: #{value}"
     end
     
@@ -182,51 +221,8 @@ sleep(2)
     puts "----------------------------------------------------------------------------------------------------------------------------------------------"
 
  # create/name list for out of stock kitchen inventory
-
-def create_list
-    print "What is the list name? "
-    name = gets.chomp
-    
-    hash = { "name" => name, "items" => Array.new }
-    return hash
-  end
-
-  $total_price = 0
-
-def add_to_total(price)
-    $total_price += price
-end
   
-  # add out of stock items
-  def add_list_item
-    print "What is the item you'd like to add? "
-    item_name = gets.chomp
-    
-    
-    print "what is the price ? "
-    price = gets.chomp.to_i
-    add_to_total(price)
-     
-    hash = { "name" => item_name, "price" => price }
-    return hash
-  end
 
-  
-  # print seprator
-  def print_separator(character="-")
-    puts character * 140
-  end
-  
-  # print list
-  def print_list(list)
-    puts "List: #{list['name']}"
-    print_separator()
-    list["items"].each do |item|
-      puts "\tItem: " + item['name'] + "\t\t\t" + 
-           "price: " +item["price"].to_s
-    end
-    print_separator()
-  end
   
   list = create_list()
   puts "Now, let's add items to your list!"
@@ -242,6 +238,8 @@ end
   puts "Here's your list:\n"
   print_list(list)
   puts "         The Total price of the order is : $ #{$total_price}"
+  File.write('list_new.txt', list)
+    
 
 
 
