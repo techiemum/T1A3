@@ -1,6 +1,23 @@
 require "colorize"
-# require "tty-box"
+require "tty-box"
 
+# this part will inform user for how to use the app . 
+
+
+    puts "Welcome to meal_planner app".yellow
+        sleep (2)
+    puts "Please selct between Monday to Friday to see recipie of the day".light_blue
+        sleep (2)
+    puts "If you do not have ingridents available please write your ingridents in list".light_red
+        sleep (2)
+    puts "check the price and place the order".blue
+        sleep (2)
+    puts "After placing your order app will give you total amount of the bill".red
+        sleep (1)
+
+ puts "----------------------------------------------------------------------------------------------------------------------------------------------"
+ puts "----------------------------------------------------------------------------------------------------------------------------------------------"
+        sleep (4)
 
 def get_user_input
     puts "Options:".colorize(:color => :light_blue, :background => :red)
@@ -81,23 +98,7 @@ end
     end
     print_separator()
   end
-# this part will inform user for how to use the app . 
 
-
-#     puts "Welcome to meal_planner app".yellow
-#         sleep (2)
-#     puts "Please selct between Monday to Friday to see recipie of the day".light_blue
-#         sleep (2)
-#     puts "If you do not have ingridents available please write your ingridents in list".light_red
-#         sleep (2)
-#     puts "check the price and place the order".blue
-#         sleep (2)
-#     puts "After placing your order app will give you total amount of the bill".red
-#         sleep (1)
-
-#  puts "----------------------------------------------------------------------------------------------------------------------------------------------"
-#  puts "----------------------------------------------------------------------------------------------------------------------------------------------"
-#         sleep (4)
 
     #Meal planning area with recipes to display on each day of the week
     #It will show day and name of the recipie , also will describe the method
@@ -202,11 +203,11 @@ puts ""
 
     # puts inventory.join(" ")
    
-    # box = TTY::Box.frame(width: 30, height: 10) do
-    #     "This is a kitchen inventory list. please go through it and check what item is out of stock"
-    #   end
+    box = TTY::Box.frame(width: 30, height: 10) do
+        "This is a kitchen inventory list. please go through it and check what item is out of stock"
+      end
 
-    #   print box
+      print box
     puts ""
     puts ""
      
