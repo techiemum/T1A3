@@ -1,4 +1,5 @@
 require "colorize"
+# require "tty-box"
 
 
 def get_user_input
@@ -194,12 +195,18 @@ do_options(planner)
 #display the kitchen inventory list
 sleep(2)
  
+puts ""
+puts ""
     # inventory.each do |name|
     # end
 
     # puts inventory.join(" ")
+   
+    # box = TTY::Box.frame(width: 30, height: 10) do
+    #     "This is a kitchen inventory list. please go through it and check what item is out of stock"
+    #   end
 
-    puts "This is a kitchen inventory list. please go through it and check what item is out of stock"
+    #   print box
     puts ""
     puts ""
      
@@ -213,10 +220,13 @@ sleep(2)
     # end
     kitchen_inventory = Meal_planner.new
     # puts kitchen_inventory
+    # box = TTY::Box.frame "Drawing a box in", "terminal emulator", padding: 3, align: :center
+    #     print box
+        
     for key , value in kitchen_inventory.stocklist
         puts  "#{key}: #{value}"
     end
-    
+
     puts "----------------------------------------------------------------------------------------------------------------------------------------------"
     puts "----------------------------------------------------------------------------------------------------------------------------------------------"
 
@@ -240,6 +250,5 @@ sleep(2)
   puts "         The Total price of the order is : $ #{$total_price}"
   File.write('list_new.txt', list)
     
-
 
 
