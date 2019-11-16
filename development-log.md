@@ -30,5 +30,10 @@ Development Log
 -it would be easier for user to select price from list rather than putting their own price
 -created hash with list of item names and prices and will display as a  list to user 
 
+16/11/2019
+
+- added colorize gem and apply to first section of the app
+-
+
 
 
