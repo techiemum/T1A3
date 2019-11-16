@@ -34,7 +34,9 @@ Development Log
 
 - created gem bundle file 
 - added colorize gem and apply to first section of the app
-- added prawn gem to the system 
+- added prawn gem to the directory
+- moved kitchen inventory inside the initialize method
+- currently there are error and app is not working after displaying the recipie
 
 
 
