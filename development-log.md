@@ -37,6 +37,9 @@ Development Log
 - added prawn gem to the directory
 - moved kitchen inventory inside the initialize method
 - currently there are error and app is not working after displaying the recipie
+- added new gem ttyt box and created frame for headings to show it as a different reading element
+
+
 
 
 
