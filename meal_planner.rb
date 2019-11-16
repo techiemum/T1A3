@@ -3,27 +3,37 @@ require "colorize"
 # this part will inform user for how to use the app . 
 
 
-    puts "Welcome to meal_planner app".yellow
-        sleep (2)
-    puts "Please selct between Monday to Friday to see recipie of the day".light_blue
-        sleep (2)
-    puts "If you do not have ingridents available please write your ingridents in list".light_red
-        sleep (2)
-    puts "check the price and place the order".blue
-        sleep (2)
-    puts "After placing your order app will give you total amount of the bill".red
-        sleep (1)
+#     puts "Welcome to meal_planner app".yellow
+#         sleep (2)
+#     puts "Please selct between Monday to Friday to see recipie of the day".light_blue
+#         sleep (2)
+#     puts "If you do not have ingridents available please write your ingridents in list".light_red
+#         sleep (2)
+#     puts "check the price and place the order".blue
+#         sleep (2)
+#     puts "After placing your order app will give you total amount of the bill".red
+#         sleep (1)
 
- puts "----------------------------------------------------------------------------------------------------------------------------------------------"
- puts "----------------------------------------------------------------------------------------------------------------------------------------------"
-        sleep (4)
+#  puts "----------------------------------------------------------------------------------------------------------------------------------------------"
+#  puts "----------------------------------------------------------------------------------------------------------------------------------------------"
+#         sleep (4)
 
     #Meal planning area with recipes to display on each day of the week
     #It will show day and name of the recipie , also will describe the method
 
 class Meal_planner
-    
+
+    attr_reader :kitchen_inventory 
+    attr_writer :get_user_input, :do_options
+
     def initialize
+        @kitchen_inventory = {
+            "potato" => "$4", "olive_oil" => "$6", "garlic" => "$3", "lemon" => "$1", "salmon" => "$4",
+            "sweet_chilli_sauce" => "$9", "ginger" => "$2", "onion" => "$4", "lamb" => "$12", "rosemary" => "$3",
+                "chicken_stock" => "$5", "ricotta" => "$4", "eggs" => "$1", "parmesan" => "$5",
+            "thyme" => "$1", "celery" => "$3", "egg_mayonnaise" => "$3", "bread" => "$4", "chicken_thighs" => "$20",
+            "pasta_sauce" => "$5", "black_olives" => "$3", "chicken_breast" => "$15", "peanut_butter" => "$4", "cream" => "$4",
+        }
     end
 
     def monday
@@ -91,8 +101,6 @@ class Meal_planner
         Simmer for 12 to 15 minutes allowing time for the delicious flavours to develop.
         END
     end
-    
-         
 end
 
 
@@ -135,7 +143,7 @@ puts "--------------------------------------------------------------------------
 
 
 planner = Meal_planner.new
-
+Meal_planner.get_user_input()
 do_options(planner)
 #display the kitchen inventory list
 sleep(2)
@@ -149,19 +157,22 @@ sleep(2)
     puts ""
     puts ""
      
-    kitchen_inventory = {
-        "potato" => "$4", "olive_oil" => "$6", "garlic" => "$3", "lemon" => "$1", "salmon" => "$4",
-        "sweet_chilli_sauce" => "$9", "ginger" => "$2", "onion" => "$4", "lamb" => "$12", "rosemary" => "$3",
-         "chicken_stock" => "$5", "ricotta" => "$4", "eggs" => "$1", "parmesan" => "$5",
-        "thyme" => "$1", "celery" => "$3", "egg_mayonnaise" => "$3", "bread" => "$4", "chicken_thighs" => "$20",
-        "pasta_sauce" => "$5", "black_olives" => "$3", "chicken_breast" => "$15", "peanut_butter" => "$4", "cream" => "$4",
+
+    # puts #{Meal_planner.kitchen_inventory}"
+
+    # kitchen_inventory = {
+    #     "potato" => "$4", "olive_oil" => "$6", "garlic" => "$3", "lemon" => "$1", "salmon" => "$4",
+    #     "sweet_chilli_sauce" => "$9", "ginger" => "$2", "onion" => "$4", "lamb" => "$12", "rosemary" => "$3",
+    #      "chicken_stock" => "$5", "ricotta" => "$4", "eggs" => "$1", "parmesan" => "$5",
+    #     "thyme" => "$1", "celery" => "$3", "egg_mayonnaise" => "$3", "bread" => "$4", "chicken_thighs" => "$20",
+    #     "pasta_sauce" => "$5", "black_olives" => "$3", "chicken_breast" => "$15", "peanut_butter" => "$4", "cream" => "$4",
         
-      }
+    #   }
       sleep(2)
     #   kitchen_inventory.each do |key, value|
     #     "#{key}: #{value}"
     # end
-
+    kitchen_inventory = Meal_planner.new("potato", 4.00)
     # puts kitchen_inventory
     for key , value in kitchen_inventory
         puts  "#{key}: #{value}"
@@ -230,7 +241,7 @@ end
   
   puts "Here's your list:\n"
   print_list(list)
-  puts $total_price
+  puts "         The Total price of the order is : $ #{$total_price}"
 
 
 
