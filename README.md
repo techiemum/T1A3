@@ -1,5 +1,5 @@
 # T1A3
-
+# this application require gems : colorize , prawn
 Terminal application 
 
 * Name of the application is meal planner
