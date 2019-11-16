@@ -32,8 +32,10 @@ Development Log
 
 16/11/2019
 
+- created gem bundle file 
 - added colorize gem and apply to first section of the app
--
+- added prawn gem to the system 
+
 
 
 
