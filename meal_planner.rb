@@ -33,6 +33,7 @@ return gets.chomp
 end
 
 def do_options(class_instance)
+    begin
     case get_user_input()
     when "monday"
         puts class_instance.monday
@@ -51,6 +52,8 @@ def do_options(class_instance)
     else
         puts "please selct the day"
     end
+    rescue
+    puts "this is not correct input please enter day"
 end
 
 
