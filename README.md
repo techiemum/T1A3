@@ -1,5 +1,5 @@
 # T1A3
-# this application require gems : colorize, prawn, tty-box
+# this application require gems : colorize,  tty-box
 
 Meal_planner application
 
